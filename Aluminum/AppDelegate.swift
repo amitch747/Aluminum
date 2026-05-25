@@ -12,8 +12,21 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+        
+    var win: NSWindow!
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create window. Wire in metal view.
+        win = NSWindow(
+            contentRect: NSRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 1280, height: 720)),
+            styleMask: [.titled, .closable, .resizable, .miniaturizable],
+            backing: .buffered,
+            defer: false
+        )
+        win.title = "Aluminum"
+        win.center()
+        win.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -21,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        // Probably do not need to touch this.  
+        // Probably do not need to touch this.
         return true
     }
 
