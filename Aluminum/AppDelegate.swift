@@ -26,6 +26,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         win.title = "Aluminum"
         win.center()
         win.makeKeyAndOrderFront(nil)
+        
+        let gpu = GPUContext()
+        let renderView = RenderView(frame: win.contentView!.bounds, gpu: gpu)
+        
         NSApp.activate(ignoringOtherApps: true)
     }
 
